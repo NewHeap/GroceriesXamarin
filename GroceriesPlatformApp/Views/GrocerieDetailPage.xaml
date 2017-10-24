@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GroceriesPlatformApp.Views.GrocerieDetailPage"
+             Title="{Binding Title}">
+    <StackLayout Spacing="20" Padding="15">
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Id:"/>
+                <Label Text="{Binding Item.Id}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Product:"/>
+                <Label Text="{Binding Item.Product}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Stock:"/>
+                <Button Text="-" Clicked="Minus_Clicked"/>
+                <Label  Text="{Binding Item.Stock}"/>
+                <Button Text="+" Clicked="Plus_Clicked" />
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

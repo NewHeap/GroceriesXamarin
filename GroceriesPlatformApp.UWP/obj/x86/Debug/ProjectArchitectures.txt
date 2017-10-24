@@ -1,0 +1,1 @@
+C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.UWP\GroceriesPlatformApp.UWP.csproj;x86
