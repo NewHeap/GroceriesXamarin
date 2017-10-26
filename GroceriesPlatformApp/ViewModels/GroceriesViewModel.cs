@@ -20,9 +20,13 @@ namespace GroceriesPlatformApp.ViewModels
             Items = new ObservableRangeCollection<GroceriesItem>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<AddGroceriePage, GroceriesItem>(this, "AddItem", async (obj, grocerie) =>
+            MessagingCenter.Subscribe<GroceriesItem>(this, "AddItem", async (grocerie) =>
             {
-                var _grocerie = grocerie as GroceriesItem;
+                await DataStore.AddItemAsync(grocerie);
+            });
+            MessagingCenter.Subscribe<GroceriesItem>(this, "UpdateItem", async (grocerie) =>
+            {
+                await DataStore.AddItemAsync(grocerie);
             });
         }
         async Task ExecuteLoadItemsCommand()
@@ -31,7 +35,6 @@ namespace GroceriesPlatformApp.ViewModels
                 return;
 
             IsBusy = true;
-
             try
             {
                 Items.Clear();

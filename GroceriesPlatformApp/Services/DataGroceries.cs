@@ -23,7 +23,7 @@ namespace GroceriesPlatformApp.Services
 
         public DataGroceries()
         {
-            uri = new Uri("http://192.168.8.100:44351/api/groceriesapi/");
+            uri = new Uri("http://192.168.1.3:44351/api/groceriesapi/");
         }
 
         public async Task<bool> SyncAsync()
@@ -62,7 +62,6 @@ namespace GroceriesPlatformApp.Services
                     {
                         return true;
                     }
-
                 }
             }
             catch (Exception ex)
@@ -82,7 +81,7 @@ namespace GroceriesPlatformApp.Services
                     string url = uri.ToString() + item.Id;
                     var json = JsonConvert.SerializeObject(item);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
-                    var response = await client.PutAsync(uri, content);
+                    var response = await client.PutAsync(url, content);
                     if (response.IsSuccessStatusCode)
                     {
                         return true;

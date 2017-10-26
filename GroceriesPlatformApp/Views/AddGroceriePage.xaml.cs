@@ -3,6 +3,8 @@
 using GroceriesPlatformApp.Models;
 
 using Xamarin.Forms;
+using GroceriesPlatformApp.Helpers;
+using GroceriesPlatformApp.ViewModels;
 
 namespace GroceriesPlatformApp.Views
 {
@@ -26,8 +28,8 @@ namespace GroceriesPlatformApp.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Groceries);
-            await Navigation.PopToRootAsync();
+            MessagingCenter.Send<GroceriesItem>(Groceries, "AddItem");
+            
         }
     }
 }

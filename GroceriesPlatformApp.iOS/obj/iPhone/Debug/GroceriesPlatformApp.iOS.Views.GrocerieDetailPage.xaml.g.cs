@@ -12,16 +12,12 @@ namespace GroceriesPlatformApp.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\ischo\\source\\repos\\GroceriesPlatformApp\\GroceriesPlatformApp\\GroceriesPl" +
-        "atformApp\\Views\\ItemsPage.xaml")]
-    public partial class ItemsPage : global::Xamarin.Forms.ContentPage {
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ListView ItemsListView;
+        "atformApp\\Views\\GrocerieDetailPage.xaml")]
+    public partial class GrocerieDetailPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ItemsPage));
-            ItemsListView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "ItemsListView");
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(GrocerieDetailPage));
         }
     }
 }

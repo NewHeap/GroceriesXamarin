@@ -1,9 +1,11 @@
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\GroceriesPlatformApp.iOS.exe
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\GroceriesPlatformApp.iOS.pdb
+C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.dll
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.dll
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.dll
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\Newtonsoft.Json.xml
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.pdb
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.xml
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\bin\iPhone\Debug\Xamarin.Forms.Core.dll.mdb
@@ -50,12 +52,10 @@ C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesP
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\optimized\
-C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.csprojResolveAssemblyReference.cache
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.csproj.CoreCompileInputs.cache
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.App.xaml.g.cs
-C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.Views.AboutPage.xaml.g.cs
-C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.Views.ItemsPage.xaml.g.cs
-C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.Views.ItemDetailPage.xaml.g.cs
-C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.Views.NewItemPage.xaml.g.cs
+C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.Views.GroceriesPage.xaml.g.cs
+C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.Views.AddGroceriePage.xaml.g.cs
+C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.Views.GrocerieDetailPage.xaml.g.cs
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.exe
 C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.iOS\obj\iPhone\Debug\GroceriesPlatformApp.iOS.pdb

@@ -15,13 +15,11 @@ namespace GroceriesPlatformApp.Views
         public GroceriesPage()
         {
             InitializeComponent();
-
             BindingContext = viewModel = new GroceriesViewModel();
-
         }
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as GroceriesItem;
+            var item = (GroceriesItem)args.SelectedItem;
             if (item == null)
                 return;
 
@@ -39,9 +37,7 @@ namespace GroceriesPlatformApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-                viewModel.LoadItemsCommand.Execute(null);
+            viewModel.LoadItemsCommand.Execute(null);
         }
-
     }
 }
