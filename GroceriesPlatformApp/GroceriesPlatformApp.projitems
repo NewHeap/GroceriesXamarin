@@ -18,7 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseDataObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GroceriesItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DataGroceries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GrocerieDeltailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GrocerieDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GroceriesViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AddGroceriePage.xaml.cs">
       <DependentUpon>AddGroceriePage.xaml</DependentUpon>

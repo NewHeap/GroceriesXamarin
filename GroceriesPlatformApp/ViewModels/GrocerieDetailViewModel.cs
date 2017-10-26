@@ -1,6 +1,4 @@
 ﻿using GroceriesPlatformApp.Models;
-using GroceriesPlatformApp.Views;
-using Xamarin.Forms;
 
 namespace GroceriesPlatformApp.ViewModels
 {

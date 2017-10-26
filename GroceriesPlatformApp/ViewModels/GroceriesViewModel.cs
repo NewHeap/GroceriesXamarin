@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 using GroceriesPlatformApp.Helpers;
 using GroceriesPlatformApp.Models;
-using GroceriesPlatformApp.Views;
 
 using Xamarin.Forms;
 
@@ -26,9 +25,10 @@ namespace GroceriesPlatformApp.ViewModels
             });
             MessagingCenter.Subscribe<GroceriesItem>(this, "UpdateItem", async (grocerie) =>
             {
-                await DataStore.AddItemAsync(grocerie);
+                await DataStore.UpdateItemAsync(grocerie);
             });
         }
+
         async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)

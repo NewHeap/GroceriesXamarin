@@ -29,6 +29,7 @@ namespace GroceriesPlatformApp.Views
             ItemsListView.SelectedItem = null;
         }
 
+
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddGroceriePage());

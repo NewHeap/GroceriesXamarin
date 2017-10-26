@@ -3,8 +3,6 @@
 using GroceriesPlatformApp.Models;
 
 using Xamarin.Forms;
-using GroceriesPlatformApp.Helpers;
-using GroceriesPlatformApp.ViewModels;
 
 namespace GroceriesPlatformApp.Views
 {
@@ -18,18 +16,18 @@ namespace GroceriesPlatformApp.Views
 
             Groceries = new GroceriesItem
             {
-                Product = "teeeeeeeeeeeeeeeeeeeeest",
-                Stock = 3,
+                Product = "test",
+                Stock = 0,
                 BuyLocation = "Zwolle",
-                StoreName = "Lidel"
+                StoreName = "Jumbo"
             };
             BindingContext = this;
         }
 
-        async void Save_Clicked(object sender, EventArgs e)
+        void Save_Clicked(object sender, EventArgs e)
         {
+            //base.AddItem(BindingBase.AddItem.NotifyOnSourceUpdated);
             MessagingCenter.Send<GroceriesItem>(Groceries, "AddItem");
-            
         }
     }
 }
