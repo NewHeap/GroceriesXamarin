@@ -15,10 +15,11 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Stock:"/>
-                <Button Text="-" Clicked="Minus_Clicked"/>
+                <Button Text="-" Clicked="Minus_Clicked" BackgroundColor="#668cff"/>
                 <Label  Text="{Binding Item.Stock}"/>
-                <Button Text="+" Clicked="Plus_Clicked" />
+                <Button Text="+" Clicked="Plus_Clicked" BackgroundColor="#668cff"/>
             </StackLayout>
+            <Button Text="Delete" Clicked="Delete_Clicked" BackgroundColor="#ff0000"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

@@ -1,12 +1,11 @@
 ﻿using GroceriesPlatformApp.Helpers;
-using GroceriesPlatformApp.Models;
 using GroceriesPlatformApp.Services;
 
 using Xamarin.Forms;
 
 namespace GroceriesPlatformApp.ViewModels
 {
-	public class BaseViewModel<T> : ObservableObject
+    public abstract class BaseViewModel<T> : ObservableObject where T : class
 	{
 		/// <summary>
 		/// Get the azure service instance
@@ -31,6 +30,8 @@ namespace GroceriesPlatformApp.ViewModels
 			get { return title; }
 			set { SetProperty(ref title, value); }
 		}
+        public abstract void Subscribe();
+        public abstract void Unsubscribe();
 	}
 }
 

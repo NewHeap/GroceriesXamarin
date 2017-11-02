@@ -24,9 +24,9 @@ namespace GroceriesPlatformApp
                     new NavigationPage(new GroceriesPage())
                     {
                         Title = "Groceries",
-#pragma warning disable CS0618 // Type or member is obsolete
+                        #pragma warning disable CS0618 // Type or member is obsolete
                         Icon = Device.OnPlatform<string>("tab_about.png",null,null)
-#pragma warning restore CS0618 // Type or member is obsolete
+                        #pragma warning restore CS0618 // Type or member is obsolete
                     },
                 }
             };

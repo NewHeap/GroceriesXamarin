@@ -8,15 +8,11 @@
         <ToolbarItem Text="Add Item" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
-        <vm:GroceriesViewModel />
+        <vm:GroceriesPageViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            
-            <Label Text="Welcome to Xamarin Forms!" />
-            
-            <Label FontSize="20" Text="This is where the table cums " />
-
+            <Label FontSize="20" Text="Groceries List" />
             <ListView   x:Name="ItemsListView" 
                         HasUnevenRows="True" 
                         ItemsSource="{Binding Items}"
@@ -25,7 +21,7 @@
                         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                         CachingStrategy="RecycleElement"
 				        ItemSelected="OnItemSelected">
-                        >
+                >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

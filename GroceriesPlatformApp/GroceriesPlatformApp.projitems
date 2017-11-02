@@ -18,10 +18,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseDataObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GroceriesItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DataGroceries.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GrocerieDetailViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GroceriesViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\AddGroceriePage.xaml.cs">
-      <DependentUpon>AddGroceriePage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GrocerieAddPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GrocerieDetailPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GroceriesPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ResponseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\GrocerieAddPage.xaml.cs">
+      <DependentUpon>GrocerieAddPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\GrocerieDetailPage.xaml.cs">
@@ -48,7 +50,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AddGroceriePage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\GrocerieAddPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

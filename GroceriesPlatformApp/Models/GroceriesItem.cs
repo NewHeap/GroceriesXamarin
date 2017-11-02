@@ -35,6 +35,5 @@
             get { return storename; }
             set { SetProperty(ref storename, value); }
         }
-        
     }
 }

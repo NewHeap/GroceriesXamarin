@@ -9,24 +9,15 @@ using Xamarin.Forms;
 
 namespace GroceriesPlatformApp.ViewModels
 {
-    public class GroceriesViewModel : BaseViewModel<GroceriesItem>
+    public class GroceriesPageViewModel : BaseViewModel<GroceriesItem>
     {
         public ObservableRangeCollection<GroceriesItem> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
-        public GroceriesViewModel()
+        public GroceriesPageViewModel()
         {
             Title = "Groceries";
             Items = new ObservableRangeCollection<GroceriesItem>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            MessagingCenter.Subscribe<GroceriesItem>(this, "AddItem", async (grocerie) =>
-            {
-                await DataStore.AddItemAsync(grocerie);
-            });
-            MessagingCenter.Subscribe<GroceriesItem>(this, "UpdateItem", async (grocerie) =>
-            {
-                await DataStore.UpdateItemAsync(grocerie);
-            });
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -39,7 +30,7 @@ namespace GroceriesPlatformApp.ViewModels
             {
                 Items.Clear();
                 var groceries = await DataStore.GetItemsAsync();
-                Items.ReplaceRange(groceries);
+                Items.ReplaceRange(groceries.Item);
             }
             catch (Exception ex)
             {
@@ -55,6 +46,14 @@ namespace GroceriesPlatformApp.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        public override void Subscribe()
+        {
+        }
+
+        public override void Unsubscribe()
+        {
         }
     }
 }

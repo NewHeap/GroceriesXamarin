@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
-  <Jars>obj\Debug\__library_projects__\FormsViewGroup\library_project_imports\formsviewgroup.jar;C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.Android\obj\Debug\__library_projects__\FormsViewGroup\library_project_imports\formsviewgroup.jar</Jars>
+  <Jars>C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.Android\obj\Debug\__library_projects__\FormsViewGroup\library_project_imports\formsviewgroup.jar</Jars>
   <ResolvedResourceDirectories>
     <ResolvedResourceDirectory>C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\ischo\source\repos\GroceriesPlatformApp\GroceriesPlatformApp\GroceriesPlatformApp.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>

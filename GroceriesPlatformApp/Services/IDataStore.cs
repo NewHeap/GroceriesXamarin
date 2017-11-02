@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using GroceriesPlatformApp.ViewModels;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
-using GroceriesPlatformApp.Helpers;
-using GroceriesPlatformApp.Models;
 
 namespace GroceriesPlatformApp.Services
 {
-    public interface IDataStore<T>
+    public interface IDataStore<T> where T : class
     {
-        Task<bool> AddItemAsync(T item);
-        Task<bool> UpdateItemAsync(T item);
-        Task<bool> DeleteItemAsync(T item);
-        Task<T> GetItemAsync(T item);
-        Task<IEnumerable<T>> GetItemsAsync();
+        Task<ResponseViewModel<HttpContent>> AddItemAsync(T item);
+        Task<ResponseViewModel<HttpContent>> UpdateItemAsync(T item);
+        Task<ResponseViewModel<HttpContent>> DeleteItemAsync(T item);
+        Task<ResponseViewModel<T>> GetItemAsync(T item);
+        Task<ResponseViewModel<IEnumerable<T>>> GetItemsAsync();
     }
 }

@@ -38,7 +38,6 @@ namespace GroceriesPlatformApp.Helpers
 		{
 			if (collection == null)
 				throw new ArgumentNullException("collection");
-
 			CheckReentrancy();
 
 			if (notificationMode == NotifyCollectionChangedAction.Reset)

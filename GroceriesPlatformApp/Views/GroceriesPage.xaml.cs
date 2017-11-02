@@ -4,18 +4,17 @@ using GroceriesPlatformApp.Models;
 using GroceriesPlatformApp.ViewModels;
 
 using Xamarin.Forms;
-using System.Threading.Tasks;
 
 namespace GroceriesPlatformApp.Views
 {
     public partial class GroceriesPage : ContentPage
     {
-        GroceriesViewModel viewModel;
+        internal GroceriesPageViewModel ViewModel;
 
         public GroceriesPage()
         {
             InitializeComponent();
-            BindingContext = viewModel = new GroceriesViewModel();
+            BindingContext = ViewModel = new GroceriesPageViewModel();
         }
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
@@ -23,7 +22,7 @@ namespace GroceriesPlatformApp.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new GrocerieDetailPage(new GrocerieDetailViewModel(item)));
+            await Navigation.PushAsync(new GrocerieDetailPage(new GrocerieDetailPageViewModel(item)));
 
             // Manually deselect item
             ItemsListView.SelectedItem = null;
@@ -32,13 +31,13 @@ namespace GroceriesPlatformApp.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddGroceriePage());
+            await Navigation.PushAsync(new GrocerieAddPage());
         }
 
         protected override void OnAppearing()
         {
+            ViewModel.LoadItemsCommand.Execute(null);
             base.OnAppearing();
-            viewModel.LoadItemsCommand.Execute(null);
         }
     }
 }
