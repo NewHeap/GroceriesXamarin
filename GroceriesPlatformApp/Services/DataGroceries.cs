@@ -49,7 +49,7 @@ namespace GroceriesPlatformApp.Services
             return false;
         }
 
-        public async Task<ResponseViewModel<HttpContent>> AddItemAsync(GroceriesItem item)
+        public async Task<ResponseViewModel<GroceriesItem>> AddItemAsync(GroceriesItem item)
         {
             try
             {
@@ -57,22 +57,27 @@ namespace GroceriesPlatformApp.Services
                 {
                     var json = JsonConvert.SerializeObject(item);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
-                    var response = await client.PostAsync(uri, content);
+                    var response = await client.PostAsync(uri.ToString(), content);
+                    var readasstring = await response.Content.ReadAsStringAsync();
                     if (response.IsSuccessStatusCode)
                     {
-                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = response.Content };
+                        GroceriesItem responseObject = JsonConvert.DeserializeObject<GroceriesItem>(readasstring);
+                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = responseObject };
+
                     }
-                    else if(response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                    else
                     {
-                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = response.Content, Validation = JsonConvert.DeserializeObject<ValidationObject>(response.Content.ToString()) };
+                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = null, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(readasstring) };
                     }
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"ERROR {0}", ex.Message);
+#if DEBUG
+                throw ex;
+#endif
             }
-            return null;
         }
 
         public async Task<ResponseViewModel<HttpContent>> UpdateItemAsync(GroceriesItem item)
@@ -91,7 +96,7 @@ namespace GroceriesPlatformApp.Services
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
-                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = response.Content, Validation = JsonConvert.DeserializeObject<ValidationObject>(response.Content.ToString()) };
+                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = response.Content, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()) };
                     }
                 }
             }
@@ -117,7 +122,7 @@ namespace GroceriesPlatformApp.Services
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
-                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = response.Content, Validation = JsonConvert.DeserializeObject<ValidationObject>(response.Content.ToString()) };
+                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = response.Content, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()) };
                     }
                 }
             }
@@ -146,7 +151,7 @@ namespace GroceriesPlatformApp.Services
                     else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
                         var JsonItem = JsonConvert.DeserializeObject<GroceriesItem>(response.Content.ToString());
-                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = JsonItem, Validation = JsonConvert.DeserializeObject<ValidationObject>(response.Content.ToString()) };
+                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = JsonItem, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()) };
                     }
                 }
             }
@@ -166,14 +171,13 @@ namespace GroceriesPlatformApp.Services
                     var response = await client.GetAsync(uri.ToString());
                     if (response.IsSuccessStatusCode)
                     {
-                        var content = await response.Content.ReadAsStringAsync();
                         var JsonItem = JsonConvert.DeserializeObject<IEnumerable<GroceriesItem>>(await response.Content.ReadAsStringAsync());
                         return new ResponseViewModel<IEnumerable<GroceriesItem>> { StatusCode = response.StatusCode, Item = JsonItem };
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
                         var JsonItem = JsonConvert.DeserializeObject<IEnumerable<GroceriesItem>>(await response.Content.ReadAsStringAsync());
-                        return new ResponseViewModel<IEnumerable<GroceriesItem>> { StatusCode = response.StatusCode, Item = JsonItem, Validation = JsonConvert.DeserializeObject<ValidationObject>(response.Content.ToString()) };
+                        return new ResponseViewModel<IEnumerable<GroceriesItem>> { StatusCode = response.StatusCode, Item = JsonItem, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()) };
                     }
                 }
             }

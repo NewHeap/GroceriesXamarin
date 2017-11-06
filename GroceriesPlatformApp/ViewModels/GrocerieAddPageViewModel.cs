@@ -1,14 +1,20 @@
 ﻿using GroceriesPlatformApp.Models;
 using System.Net;
-using System.Net.Http;
 using Xamarin.Forms;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace GroceriesPlatformApp.ViewModels
 {
     public class GrocerieAddPageViewModel : BaseViewModel<GroceriesItem>
     {
         public GroceriesItem Item { get; set; }
-        public ValidationObject Validation { get; set; }
+
+        public Dictionary<string, string[]> _validation = new Dictionary<string, string[]>();
+        public Dictionary<string, string[]> Validation { get { return _validation; } set { _validation = value; OnPropertyChanged(nameof(Validation)); } }
 
         public GrocerieAddPageViewModel()
         {
@@ -19,6 +25,11 @@ namespace GroceriesPlatformApp.ViewModels
                 BuyLocation = "Zwollestsraat 20",
                 StoreName = "Jumbo",
                 Product = "Boter"
+            };
+
+            Validation = new Dictionary<string, string[]>
+            {
+                { "Product", new string[] { "FAGOOOOT" } }
             };
         }
 
@@ -33,10 +44,13 @@ namespace GroceriesPlatformApp.ViewModels
         {
             MessagingCenter.Subscribe<GroceriesItem>(this, "AddItem", async (grocerie) =>
             {
-                ResponseViewModel<HttpContent> response = await DataStore.AddItemAsync(grocerie);
-                if(response.StatusCode >= (HttpStatusCode)200 && response.StatusCode <= (HttpStatusCode)210)
+                var response = await DataStore.AddItemAsync(grocerie);
+                if(response.StatusCode >= (HttpStatusCode)200 && response.StatusCode <= (HttpStatusCode)210 || response.StatusCode == (HttpStatusCode)400)
                 {
-                    this.Validation = response.Validation;
+                    Validation = response.Validation;
+                    Device.BeginInvokeOnMainThread(() => {
+                        Debug.WriteLine("Ye'rr a wizzard harry!");
+                    });
                 }
             });
         }

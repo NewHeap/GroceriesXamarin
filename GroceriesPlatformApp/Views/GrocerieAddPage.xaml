@@ -8,18 +8,21 @@
             <StackLayout Spacing="20" Padding="15">
                 <Label Text="Product" FontSize="Small" />
                 <Entry Text="{Binding Item.Product}" FontSize="Small" />
-                
+                <ListView ItemsSource="{Binding Validation[Product]}">
+
+                </ListView>
+
                 <Label Text="Stock" FontSize="Small" />
                 <Entry Keyboard="Numeric" Text="{Binding Item.Stock}" FontSize="Small" Margin="0" />
-                <!--<Label Text="{Binding Stock}" FontSize="Small" />-->
 
                 <Label Text="BuyLocation" FontSize="Small" />
                 <Entry Text="{Binding Item.BuyLocation}" FontSize="Small" Margin="0" />
                 
                 <Label Text="StoreName" FontSize="Small" />
                 <Entry Text="{Binding Item.StoreName}" FontSize="Small" Margin="0" />
-                <Label Text="{Binding Validation.Items[0].Key}" />
+                <Label Text="{Binding Validation[Product], Path=Value}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
+<!--Values-->

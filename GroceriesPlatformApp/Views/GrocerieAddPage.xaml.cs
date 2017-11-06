@@ -1,5 +1,4 @@
 ﻿using System;
-using GroceriesPlatformApp.Models;
 using Xamarin.Forms;
 using GroceriesPlatformApp.ViewModels;
 
@@ -15,10 +14,10 @@ namespace GroceriesPlatformApp.Views
             BindingContext = ViewModel = new GrocerieAddPageViewModel();
         }
 
-        async void Save_Clicked(object sender, EventArgs e)
+        void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send<GroceriesItem>(ViewModel.Item, "AddItem");
-            await Navigation.PushAsync(new GroceriesPage());
+            MessagingCenter.Send(ViewModel.Item, "AddItem");
+            //await Navigation.PopAsync();
         }
 
         protected override void OnAppearing()

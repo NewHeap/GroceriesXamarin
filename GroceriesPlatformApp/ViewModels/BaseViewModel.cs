@@ -1,12 +1,13 @@
 ﻿using GroceriesPlatformApp.Helpers;
 using GroceriesPlatformApp.Services;
-
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 namespace GroceriesPlatformApp.ViewModels
 {
-    public abstract class BaseViewModel<T> : ObservableObject where T : class
-	{
+    public abstract class BaseViewModel<T> : ObservableObject where T : class, INotifyPropertyChanged
+    {
 		/// <summary>
 		/// Get the azure service instance
 		/// </summary>
@@ -32,6 +33,14 @@ namespace GroceriesPlatformApp.ViewModels
 		}
         public abstract void Subscribe();
         public abstract void Unsubscribe();
-	}
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this,
+    new PropertyChangedEventArgs(propertyName));
+        }
+    }
 }
 
