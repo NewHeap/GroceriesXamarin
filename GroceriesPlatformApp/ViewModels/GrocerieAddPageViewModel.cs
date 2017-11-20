@@ -27,10 +27,10 @@ namespace GroceriesPlatformApp.ViewModels
                 Product = "Boter"
             };
 
-            Validation = new Dictionary<string, string[]>
-            {
-                { "Product", new string[] { "FAGOOOOT" } }
-            };
+            //Validation = new Dictionary<string, string[]>
+            //{
+            //    { "Product", new string[] { "FAGOOOOT" } }
+            //};
         }
 
         int quantity = 1;
@@ -50,6 +50,7 @@ namespace GroceriesPlatformApp.ViewModels
                     Validation = response.Validation;
                     Device.BeginInvokeOnMainThread(() => {
                         Debug.WriteLine("Ye'rr a wizzard harry!");
+                        Debug.WriteLine(Validation);
                     });
                 }
             });
