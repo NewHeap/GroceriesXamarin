@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GroceriesPlatformApp.Views.GroceriesPage"
+             xmlns:vm="clr-namespace:GroceriesPlatformApp.ViewModels;"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Item" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <vm:GroceriesPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label FontSize="20" Text="Groceries List" />
+            <ListView   x:Name="ItemsListView" 
+                        HasUnevenRows="True" 
+                        ItemsSource="{Binding Items}"
+                        IsPullToRefreshEnabled="True"
+                        RefreshCommand="{Binding LoadItemsCommand}"
+                        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                        CachingStrategy="RecycleElement"
+				        ItemSelected="OnItemSelected">
+                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Id:"/>
+                                    <Label Text="{Binding Id}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Product:"/>
+                                    <Label Text="{Binding Product}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Stock:"/>
+                                    <Label Text="{Binding Stock}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

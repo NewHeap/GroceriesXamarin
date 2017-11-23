@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GroceriesPlatformApp.Views.GrocerieAddPage" xmlns:local="clr-namespace:GroceriesPlatformApp.Converters" Title="New Product">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:HasItemsValueConverter x:Key="cnvHasItems"></local:HasItemsValueConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="Product" FontSize="Small" />
+                <Entry Text="{Binding Item.Product}" FontSize="Small" />
+                <StackLayout VerticalOptions="FillAndExpand" >
+                    <!--IsVisible = "False"
+                    IsVisible="{Binding Valdidation[Product], Converter={StaticResource cnvHasItems}}"-->
+                    <ListView HasUnevenRows="True" 
+                              ItemsSource="{Binding Validation[Product]}"
+                               ItemSelected="OnItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding}"></Label>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <Label Text="Stock" FontSize="Small" />
+                <Entry Keyboard="Numeric" Text="{Binding Item.Stock}" FontSize="Small" Margin="0" />
+
+                <Label Text="BuyLocation" FontSize="Small" />
+                <Entry Text="{Binding Item.BuyLocation}" FontSize="Small" Margin="0" />
+
+                <Label Text="StoreName" FontSize="Small" />
+                <Entry Text="{Binding Item.StoreName}" FontSize="Small" Margin="0" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+<!--Values-->
