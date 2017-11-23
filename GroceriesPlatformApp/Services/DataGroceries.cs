@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 using System.Net.Http;
 using System.Diagnostics;
@@ -58,16 +57,16 @@ namespace GroceriesPlatformApp.Services
                     var json = JsonConvert.SerializeObject(item);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     var response = await client.PostAsync(uri.ToString(), content);
-                    var readasstring = await response.Content.ReadAsStringAsync();
+                    var readAsString = await response.Content.ReadAsStringAsync();
                     if (response.IsSuccessStatusCode)
                     {
-                        GroceriesItem responseObject = JsonConvert.DeserializeObject<GroceriesItem>(readasstring);
+                        GroceriesItem responseObject = JsonConvert.DeserializeObject<GroceriesItem>(readAsString);
                         return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = responseObject };
 
                     }
                     else
                     {
-                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = null, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(readasstring) };
+                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = null, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(readAsString) };
                     }
                 }
             }

@@ -1,5 +1,6 @@
 ﻿using GroceriesPlatformApp.Helpers;
 using GroceriesPlatformApp.Services;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
@@ -34,13 +35,14 @@ namespace GroceriesPlatformApp.ViewModels
         public abstract void Subscribe();
         public abstract void Unsubscribe();
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //    public event PropertyChangedEventHandler PropertyChanged;
 
-        protected new virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this,
-    new PropertyChangedEventArgs(propertyName));
-        }
+        //    protected new virtual void OnPropertyChanged(string propertyName)
+        //    {
+        //        PropertyChanged?.Invoke(this,
+        //new PropertyChangedEventArgs(propertyName));
+        //    }
+
     }
 }
 
