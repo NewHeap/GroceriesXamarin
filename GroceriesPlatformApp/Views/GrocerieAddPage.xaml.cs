@@ -11,13 +11,13 @@ namespace GroceriesPlatformApp.Views
         public GrocerieAddPage()
         {
             InitializeComponent();
-            BindingContext = ViewModel = new GrocerieAddPageViewModel();
+            BindingContext = ViewModel = new GrocerieAddPageViewModel(Navigation);
         }   
         void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(ViewModel.Item, "AddItem");
-            //await Navigation.PopAsync();
         }
+
         void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e == null) return; // has been set to null, do not 'process' tapped event             

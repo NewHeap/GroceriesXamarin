@@ -15,7 +15,8 @@ namespace GroceriesPlatformApp
 			SetMainPage();
 		}
 
-		public static void SetMainPage()
+
+        public static void SetMainPage()
 		{
             Current.MainPage = new TabbedPage
             {

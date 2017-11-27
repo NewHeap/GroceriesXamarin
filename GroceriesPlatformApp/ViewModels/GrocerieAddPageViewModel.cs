@@ -18,7 +18,11 @@ namespace GroceriesPlatformApp.ViewModels
             set { _validation = value; OnPropertyChanged(nameof(Validation)); }
         }
 
-        public GrocerieAddPageViewModel()
+        public INavigation Navigation;
+
+
+
+        public GrocerieAddPageViewModel(INavigation navigation)
         {
             Item = new GroceriesItem
             {
@@ -27,6 +31,7 @@ namespace GroceriesPlatformApp.ViewModels
                 BuyLocation = "Zwollestsraat 20",
                 StoreName = "Jumbo"
             };
+            Navigation = navigation;
         }
 
         int quantity = 1;
@@ -45,7 +50,7 @@ namespace GroceriesPlatformApp.ViewModels
                 if (response.StatusCode >= (HttpStatusCode)200 && response.StatusCode <= (HttpStatusCode)210)
                 {
                     Validation = new Dictionary<string, ValidationViewModel>();
-
+                    await Navigation.PopAsync();
                 }
                 else
                 {
