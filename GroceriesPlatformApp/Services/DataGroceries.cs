@@ -11,6 +11,7 @@ using Xamarin.Forms;
 
 using Newtonsoft.Json;
 using GroceriesPlatformApp.ViewModels;
+using System.Linq;
 
 [assembly: Dependency(typeof(GroceriesPlatformApp.Services.DataGroceries))]
 namespace GroceriesPlatformApp.Services
@@ -66,7 +67,8 @@ namespace GroceriesPlatformApp.Services
                     }
                     else
                     {
-                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = null, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(readAsString) };
+                        var validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(readAsString).Select(x => new ValidationViewModel { Field = x.Key, Errors = x.Value }).ToList();
+                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = null, Validation = validation.ToDictionary(x => x.Field, x => x) };
                     }
                 }
             }
@@ -95,7 +97,8 @@ namespace GroceriesPlatformApp.Services
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
-                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = response.Content, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()) };
+                        var validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()).Select(x => new ValidationViewModel { Field = x.Key, Errors = x.Value }).ToList();
+                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = null, Validation = validation.ToDictionary(x => x.Field, x => x) };
                     }
                 }
             }
@@ -121,7 +124,8 @@ namespace GroceriesPlatformApp.Services
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
-                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = response.Content, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()) };
+                        var validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()).Select(x => new ValidationViewModel { Field = x.Key, Errors = x.Value }).ToList();
+                        return new ResponseViewModel<HttpContent> { StatusCode = response.StatusCode, Item = null, Validation = validation.ToDictionary(x => x.Field, x => x)};
                     }
                 }
             }
@@ -149,8 +153,8 @@ namespace GroceriesPlatformApp.Services
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
-                        var JsonItem = JsonConvert.DeserializeObject<GroceriesItem>(response.Content.ToString());
-                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = JsonItem, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()) };
+                        var validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()).Select(x => new ValidationViewModel { Field = x.Key, Errors = x.Value }).ToList();
+                        return new ResponseViewModel<GroceriesItem> { StatusCode = response.StatusCode, Item = null, Validation = validation.ToDictionary(x => x.Field, x => x) };
                     }
                 }
             }
@@ -175,8 +179,8 @@ namespace GroceriesPlatformApp.Services
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                     {
-                        var JsonItem = JsonConvert.DeserializeObject<IEnumerable<GroceriesItem>>(await response.Content.ReadAsStringAsync());
-                        return new ResponseViewModel<IEnumerable<GroceriesItem>> { StatusCode = response.StatusCode, Item = JsonItem, Validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()) };
+                        var validation = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(response.Content.ToString()).Select(x => new ValidationViewModel { Field = x.Key, Errors = x.Value }).ToList();
+                        return new ResponseViewModel<IEnumerable<GroceriesItem>> { StatusCode = response.StatusCode, Item = null, Validation = validation.ToDictionary(x => x.Field, x => x) };
                     }
                 }
             }

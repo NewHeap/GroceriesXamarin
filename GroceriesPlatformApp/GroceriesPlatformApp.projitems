@@ -15,13 +15,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Converters\HasItemsValueConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\IsVisableConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseDataObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GroceriesItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DataGroceries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GrocerieAddPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GrocerieDetailPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\GroceriesPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IValidationRule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ResponseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\GrocerieAddPage.xaml.cs">

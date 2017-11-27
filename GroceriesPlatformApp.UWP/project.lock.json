@@ -24078,12 +24078,12 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\ischo\\source\\repos\\GroceriesPlatformApp\\GroceriesPlatformApp\\GroceriesPlatformApp.UWP\\GroceriesPlatformApp.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\ischo\\source\\repos\\GroceriesXamarin\\GroceriesPlatformApp\\GroceriesPlatformApp.UWP\\GroceriesPlatformApp.UWP.csproj",
       "projectName": "GroceriesPlatformApp.UWP",
-      "projectPath": "C:\\Users\\ischo\\source\\repos\\GroceriesPlatformApp\\GroceriesPlatformApp\\GroceriesPlatformApp.UWP\\GroceriesPlatformApp.UWP.csproj",
-      "projectJsonPath": "C:\\Users\\ischo\\source\\repos\\GroceriesPlatformApp\\GroceriesPlatformApp\\GroceriesPlatformApp.UWP\\project.json",
+      "projectPath": "C:\\Users\\ischo\\source\\repos\\GroceriesXamarin\\GroceriesPlatformApp\\GroceriesPlatformApp.UWP\\GroceriesPlatformApp.UWP.csproj",
+      "projectJsonPath": "C:\\Users\\ischo\\source\\repos\\GroceriesXamarin\\GroceriesPlatformApp\\GroceriesPlatformApp.UWP\\project.json",
       "packagesPath": "C:\\Users\\ischo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ischo\\source\\repos\\GroceriesPlatformApp\\GroceriesPlatformApp\\GroceriesPlatformApp.UWP\\obj\\",
+      "outputPath": "C:\\Users\\ischo\\source\\repos\\GroceriesXamarin\\GroceriesPlatformApp\\GroceriesPlatformApp.UWP\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
         "C:\\Users\\ischo\\AppData\\Roaming\\NuGet\\NuGet.Config",

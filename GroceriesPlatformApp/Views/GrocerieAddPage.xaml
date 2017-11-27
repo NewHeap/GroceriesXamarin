@@ -1,10 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GroceriesPlatformApp.Views.GrocerieAddPage" xmlns:local="clr-namespace:GroceriesPlatformApp.Converters" Title="New Product">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:HasItemsValueConverter x:Key="cnvHasItems"></local:HasItemsValueConverter>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
@@ -13,31 +8,78 @@
             <StackLayout Spacing="20" Padding="15">
                 <Label Text="Product" FontSize="Small" />
                 <Entry Text="{Binding Item.Product}" FontSize="Small" />
-                <StackLayout VerticalOptions="FillAndExpand" >
-                    <!--IsVisible = "False"
-                    IsVisible="{Binding Valdidation[Product], Converter={StaticResource cnvHasItems}}"-->
-                    <ListView HasUnevenRows="True" 
-                              ItemsSource="{Binding Validation[Product]}"
-                               ItemSelected="OnItemTapped">
+                <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding Validation[Product], Converter={local:IsVisableConverter}}" HeightRequest="{Binding Validation[Product].Height}">
+                    <ListView HasUnevenRows="True"  
+                              ItemsSource="{Binding Validation[Product].Errors}"
+                              ItemSelected="OnItemTapped"
+                              VerticalOptions="FillAndExpand">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Label Text="{Binding}"></Label>
+                                    <Label TextColor="Red" Text="{Binding}"></Label>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
+                
                 <Label Text="Stock" FontSize="Small" />
                 <Entry Keyboard="Numeric" Text="{Binding Item.Stock}" FontSize="Small" Margin="0" />
+                <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding Validation[Stock], Converter={local:IsVisableConverter}}" HeightRequest="{Binding Validation[Stock].Height}">
+                    <ListView HasUnevenRows="True"  
+                              ItemsSource="{Binding Validation[Stock].Errors}"
+                              ItemSelected="OnItemTapped"
+                              VerticalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label TextColor="Red" Text="{Binding}"></Label>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
 
                 <Label Text="BuyLocation" FontSize="Small" />
                 <Entry Text="{Binding Item.BuyLocation}" FontSize="Small" Margin="0" />
+                <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding Validation[BuyLocation], Converter={local:IsVisableConverter}}" HeightRequest="{Binding Validation[BuyLocation].Height}">
+                    <ListView HasUnevenRows="True"  
+                              ItemsSource="{Binding Validation[BuyLocation].Errors}"
+                              ItemSelected="OnItemTapped"
+                              VerticalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label TextColor="Red" Text="{Binding}"></Label>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
 
                 <Label Text="StoreName" FontSize="Small" />
                 <Entry Text="{Binding Item.StoreName}" FontSize="Small" Margin="0" />
+                <StackLayout VerticalOptions="FillAndExpand" IsVisible="{Binding Validation[StoreName], Converter={local:IsVisableConverter}}" HeightRequest="{Binding Validation[StoreName].Height}">
+                    <ListView HasUnevenRows="True"  
+                              ItemsSource="{Binding Validation[StoreName].Errors}"
+                              ItemSelected="OnItemTapped"
+                              VerticalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label TextColor="Red" Text="{Binding}"></Label>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
-<!--Values-->
+<!--IsVisible = "False"
+IsVisible="{Binding Valdidation[Product], Converter={StaticResource cnvHasItems}}"-->

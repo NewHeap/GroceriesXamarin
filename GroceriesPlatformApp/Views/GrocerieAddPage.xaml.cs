@@ -24,6 +24,7 @@ namespace GroceriesPlatformApp.Views
             ((ListView)sender).SelectedItem = null; // de-select the row       
         }
 
+
         protected override void OnAppearing()
         {
             ViewModel.Subscribe();
@@ -34,6 +35,22 @@ namespace GroceriesPlatformApp.Views
         {
             ViewModel.Unsubscribe();
             base.OnDisappearing();
+        }
+    }
+    /// <typeparam name="T"></typeparam>
+    public class IsNotNullOrEmptyRule<T> : IValidationRule<T>
+    {
+        public string ValidationMessage { get; set; }
+
+        public bool Check(T value)
+        {
+            if (value == null)
+            {
+                return false;
+            }
+
+            var str = value as string;
+            return !string.IsNullOrWhiteSpace(str);
         }
     }
 }

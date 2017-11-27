@@ -2,7 +2,6 @@
 using System.Net;
 using Xamarin.Forms;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace GroceriesPlatformApp.ViewModels
 {
@@ -11,13 +10,14 @@ namespace GroceriesPlatformApp.ViewModels
     {
         public GroceriesItem Item { get; set; }
 
-        private Dictionary<string, string[]> _validation = new Dictionary<string, string[]>();
-        public Dictionary<string, string[]> Validation
+        private Dictionary<string, ValidationViewModel> _validation = new Dictionary<string, ValidationViewModel>();
+
+        public Dictionary<string, ValidationViewModel> Validation
         {
             get { return _validation; }
             set { _validation = value; OnPropertyChanged(nameof(Validation)); }
         }
-        
+
         public GrocerieAddPageViewModel()
         {
             Item = new GroceriesItem
@@ -37,7 +37,6 @@ namespace GroceriesPlatformApp.ViewModels
         }
 
 
-
         public override void Subscribe()
         {
             MessagingCenter.Subscribe<GroceriesItem>(this, "AddItem", async (grocerie) =>
@@ -45,19 +44,16 @@ namespace GroceriesPlatformApp.ViewModels
                 var response = await DataStore.AddItemAsync(grocerie);
                 if (response.StatusCode >= (HttpStatusCode)200 && response.StatusCode <= (HttpStatusCode)210)
                 {
-                    
-                }
-                else if(response.StatusCode == (HttpStatusCode)400)
-                {
-                    Validation = response.Validation;
-                    Device.BeginInvokeOnMainThread(() => {
-                        //?
-                    });
+                    Validation = new Dictionary<string, ValidationViewModel>();
+
                 }
                 else
                 {
-                    return;
+                    Validation = response.Validation;
                 }
+                Device.BeginInvokeOnMainThread(() => {
+                    //?
+                });
             });
         }
         public override void Unsubscribe()
